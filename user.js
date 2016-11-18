@@ -19,10 +19,7 @@ function db_function() {
        if (err){
          res.send({status: 1, message: 'get user failed'});
        }
-       if (result.length == 0){
-         res.send({status: 1, message: "user does not exist"});
-       }else{
-         res.send(result)
+       res.send(result)
        }
      });
    });
