@@ -20,7 +20,6 @@ function db_function() {
          res.send({status: 1, message: 'get user failed'});
        }
        res.send(result)
-       }
      });
    });
  };
