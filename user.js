@@ -3,6 +3,7 @@ var connection = require('./connection');
 function db_function() {
   this.get = function(res) {
    connection.acquire(function(err, con) {
+     if(err) res.send({status: 1, message: "Not connected to the db"});
      con.query('select * from user', function(err, result) {
        con.release();
        res.send(result);
@@ -12,6 +13,7 @@ function db_function() {
 
  this.getByName = function (name,res) {
    connection.acquire(function (err,con) {
+     if(err) res.send({status: 1, message: "Not connected to the db"});
      con.query('select * from user where username = ?', [name],function (err,result) {
        con.release();
        if (err){
@@ -28,6 +30,7 @@ function db_function() {
 
  this.add = function(user, res) {
     connection.acquire(function(err, con) {
+      if(err) res.send({status: 1, message: "Not connected to the db"});
       con.query('insert into user set ?', [user], function(err, result) {
         con.release();
         if (err) {
@@ -41,6 +44,7 @@ function db_function() {
 
   this.update = function(user, res) {
     connection.acquire(function(err, con) {
+      if(err) res.send({status: 1, message: "Not connected to the db"});
       con.query('update user set ? where username = ?', [user, user.username], function(err, result) {
         con.release();
         if (err) {
@@ -54,6 +58,7 @@ function db_function() {
 
   this.delete = function(name, res) {
     connection.acquire(function(err, con) {
+      if(err) res.send({status: 1, message: "Not connected to the db"});
       con.query('delete from user where username = ?', [name], function(err, result) {
         con.release();
         if (err) {

@@ -3,7 +3,8 @@ var user = require('./user');
 module.exports = {
   configure: function(app) {
     app.get('/',function (req,res) {
-      res.json({"Message": "navigate /user/ to view all entries"});
+      res.json({"Message": "navigate /user/ to view all entries",
+                "Usage": "use GET,POST,PUT,DELETE on /user/ or /user/:username"});
     });
 
     app.get('/user/', function(req, res) {

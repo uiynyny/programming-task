@@ -6,10 +6,10 @@ function Connection() {
   this.init = function() {
     this.pool = mysql.createPool({
       connectionLimit: 10,
-      host: 'localhost',
-      user: 'root',
-      password: '',
-      database: 'mydb'
+      host: process.env.DATABASE_HOST || "localhost",
+      user: "root",
+      password: "123",
+      database: "mydb"
     });
   };
 
