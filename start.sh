@@ -2,6 +2,7 @@
 
 # Run the MySQL container, with a database named 'users' and credentials
 # for a users-service user which can access it.
+cd /data/
 echo "Starting DB..."
 docker run --name db -d \
   -e MYSQL_ROOT_PASSWORD=123 \
